@@ -11,10 +11,6 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> c3a723fcde1341bb823479b3ef59bbeb229aa6c8
     <java.version>1.8</java.version>
   </properties>
 
@@ -32,13 +28,6 @@
     </plugins>
   </build>
 
-<<<<<<< HEAD
-=======
-=======
-  </properties>
-
->>>>>>> ea886a0041089b49bff47fad00a340bf50b0e9b1
->>>>>>> c3a723fcde1341bb823479b3ef59bbeb229aa6c8
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
