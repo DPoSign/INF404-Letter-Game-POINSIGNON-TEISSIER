@@ -1,3 +1,1 @@
-# TP Architecture Logicielle / Inf4043 - 2017 - Jeux de lettres
-
-Date de rendu : 24/02/2017 23h - pas de retard accepté
+To test java -cp target/my-app-1.0-SNAPSHOT.jar com.esiea.app.App in my-app directory
