@@ -42,7 +42,9 @@ public class Pair<E1, E2> {
 			
 			return this.first.equals(pair.getFirst()) && this.second.equals(pair.getSecond());
 		}
-		catch (ClassCastException e) {}
+		catch (ClassCastException e) {
+			
+		}
 		
 		return false;
 	}

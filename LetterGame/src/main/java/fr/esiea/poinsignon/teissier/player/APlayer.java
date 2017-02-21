@@ -33,15 +33,6 @@ public abstract class APlayer {
 		words.add(word);
 	}
 	
-	/**
-	 * Remove the given word from this player
-	 * 
-	 * @param word
-	 */
-	public final void removeWord(String word) {
-		words.remove(word);
-	}
-	
 	
 	/**
 	 * Check whether this player type needs the console to view things
