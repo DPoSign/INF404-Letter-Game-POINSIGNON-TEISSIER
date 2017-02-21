@@ -1,8 +1,10 @@
 package fr.esiea.poinsignon.teissier.move;
 
-import fr.esiea.poinsignon.teissier.bowl.Bowl;
+import java.util.Vector;
+
 import fr.esiea.poinsignon.teissier.game.AGame;
 import fr.esiea.poinsignon.teissier.player.APlayer;
+import fr.esiea.poinsignon.teissier.util.Util;
 
 
 /**
@@ -15,10 +17,16 @@ public class CompleteOwnWord extends AMove {
 	 * The player wants to play the given option of this move
 	 * 
 	 * @param game
+	 * @param word
 	 * @param idx
 	 */
-	public void playOption(AGame game, int idx) {
+	public void playOption(AGame game, String word, int idx) {
+		assertOption(idx);
 		
+		String ownWord = (String)options.elementAt(idx);
+		String remaining = Util.remainingChars(word, ownWord);
+		game.getBowl().useLetters(remaining);
+		System.out.println("Extending own word '" + ownWord + "' and using letters '" + remaining + "' from the bowl");
 	}
 	
 	/**
@@ -30,24 +38,14 @@ public class CompleteOwnWord extends AMove {
 	 * @return True if the move is possible
 	 */
 	public boolean attempt(AGame game, String word) {
-		Bowl bowl = game.getBowl();
+		Vector<String> bowlLetters = game.getBowl().getLetters();
 		
-		for (APlayer opponent : game.getOpponents())
-			for (String oppWord : opponent.getWords())
-				System.out.println(oppWord + " + " + bowl.getLetters() + " = " + (oppWord + bowl.getLetters()));
+		APlayer self = game.getCurrentPlayer();
+		for (String ownWord : self.getWords())
+			if (word.length() > ownWord.length() && Util.hasSameLetters(word, Util.addCharsToVector(bowlLetters, ownWord)))
+				options.add(ownWord);
 		
-		return false;
-	}
-	
-	/**
-	 * Show on the console the different options that are available with this move
-	 */
-	public void showAvailableOptions(int idx) {
-		if (options.isEmpty())
-			return;
-		
-		showOptionIndex(idx);
-		System.out.println("Use own word");
+		return !options.isEmpty();
 	}
 	
 	/**
@@ -57,10 +55,9 @@ public class CompleteOwnWord extends AMove {
 	 * @param idxOpt
 	 */
 	public void showAvailableOption(int idxGlobal, int idxOpt) {
-		if (options.isEmpty())
-			return;
+		assertOption(idxOpt);
 		
 		showOptionIndex(idxGlobal);
-		System.out.println("Use steal " + idxOpt);
+		System.out.println("Extend own word '" + (String)options.elementAt(idxOpt) + "'");
 	}
 }

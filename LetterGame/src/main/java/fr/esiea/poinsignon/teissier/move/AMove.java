@@ -22,9 +22,10 @@ public abstract class AMove {
 	 * The player wants to play the given option of this move
 	 * 
 	 * @param game
+	 * @param word
 	 * @param idx
 	 */
-	abstract public void playOption(AGame game, int idx);
+	abstract public void playOption(AGame game, String word, int idx);
 	
 	/**
 	 * Try to perform the move, and keep possible solutions at hand
@@ -36,12 +37,20 @@ public abstract class AMove {
 	 */
 	abstract public boolean attempt(AGame game, String word);
 	
+	
 	/**
 	 * Show on the console the different options that are available with this move
 	 * 
 	 * @param idx
 	 */
-	abstract public void showAvailableOptions(int idx);
+	public final void showAvailableOptions(int idx) {
+		if (options.isEmpty())
+			return;
+		
+		for (int opt = 0, len = options.size(); opt < len; opt++)
+			showAvailableOption(idx, opt);
+	}
+
 	
 	/**
 	 * Show on the console the given option that is available with this move
@@ -60,6 +69,17 @@ public abstract class AMove {
 	protected final void showOptionIndex(int idx) {
 		System.out.print(idx + ". ");
 	}
+	
+	/**
+	 * Check the option index we are given
+	 * 
+	 * @param idx
+	 */
+	protected final void assertOption(int idx) {
+		if (options.size() < (idx + 1) || idx < 0)
+			throw new RuntimeException("Should never happen");
+	}
+	
 	
 	
 	/**

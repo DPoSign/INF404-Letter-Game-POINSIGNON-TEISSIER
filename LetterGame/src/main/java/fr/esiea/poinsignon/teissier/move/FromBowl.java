@@ -1,6 +1,5 @@
 package fr.esiea.poinsignon.teissier.move;
 
-import fr.esiea.poinsignon.teissier.bowl.Bowl;
 import fr.esiea.poinsignon.teissier.game.AGame;
 import fr.esiea.poinsignon.teissier.util.Util;
 
@@ -15,13 +14,14 @@ public class FromBowl extends AMove {
 	 * The player wants to play the given option of this move
 	 * 
 	 * @param game
+	 * @param word
 	 * @param idx
 	 */
-	public void playOption(AGame game, int idx) {
-		if (options.size() < (idx + 1) || idx < 0)
-			throw new RuntimeException("Should never happen");
+	public void playOption(AGame game, String word, int idx) {
+		assertOption(idx);
 		
 		game.getBowl().useLetters((String)options.elementAt(idx));
+		System.out.println("Using only letters from the bowl");
 	}
 	
 	/**
@@ -33,25 +33,10 @@ public class FromBowl extends AMove {
 	 * @return True if the move is possible
 	 */
 	public boolean attempt(AGame game, String word) {
-		Bowl bowl = game.getBowl();
-		
-		if (Util.hasSameLetters(word, bowl.getLetters())) {
+		if (Util.hasSameLetters(word, game.getBowl().getLetters()))
 			options.add(word);
-			return true;
-		}
 		
-		return false;
-	}
-	
-	/**
-	 * Show on the console the different options that are available with this move
-	 */
-	public void showAvailableOptions(int idx) {
-		if (options.isEmpty())
-			return;
-		
-		showOptionIndex(idx);
-		System.out.println("Use only letters from bowl");
+		return !options.isEmpty();
 	}
 	
 	/**
@@ -61,8 +46,7 @@ public class FromBowl extends AMove {
 	 * @param idxOpt
 	 */
 	public void showAvailableOption(int idxGlobal, int idxOpt) {
-		if (options.isEmpty())
-			return;
+		assertOption(idxOpt);
 		
 		showOptionIndex(idxGlobal);
 		System.out.println("Use only letters from bowl");

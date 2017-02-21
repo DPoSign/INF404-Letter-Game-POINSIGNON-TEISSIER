@@ -45,6 +45,7 @@ public abstract class AGame {
 		System.out.println("voiture exists ? " + dico.exists("voiture"));
 		System.out.println("Voiture exists ? " + dico.exists("Voiture"));
 		System.out.println("Vôiture exists ? " + dico.exists("Vôiture"));
+		bowl.addLetters("abatage");
 		
 		waitForPlayers();
 		checkNbPlayers();
@@ -149,11 +150,13 @@ public abstract class AGame {
 		System.out.println("**** OPTIONS");
 		showAllOptions(options, true);
 		
+		System.out.print("Placing the word '" + word + "' - ");
+		
 		showAllOptions(options, false);
 		if (options.size() == 1)
-			playOption(options.get(1));
+			playOption(word, options.get(1));
 		else
-			playOption(options.get(curPlayer.chooseMoveOption(options)));
+			playOption(word, options.get(curPlayer.chooseMoveOption(options)));
 		
 		curPlayer.addWord(word);
 		bowl.pickLetter(bag);
@@ -178,10 +181,11 @@ public abstract class AGame {
 	/**
 	 * Play the given option
 	 * 
+	 * @param word
 	 * @param option
 	 */
-	protected final void playOption(Pair<AMove, Integer> option) {
-		option.getFirst().playOption(this, option.getSecond().intValue());
+	protected final void playOption(String word, Pair<AMove, Integer> option) {
+		option.getFirst().playOption(this, word, option.getSecond().intValue());
 	}
 	
 	

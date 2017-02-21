@@ -26,13 +26,23 @@ public class Bowl {
 	
 	
 	/**
+	 * Add the given letters to the bowl (mainly used for testing purposes)
+	 * 
+	 * @param word
+	 */
+	public void addLetters(String word) {
+		for (char c : word.toUpperCase().toCharArray())
+			letters.add("" + c);
+	}
+	
+	/**
 	 * Remove from the bowl the letters contained in this word
 	 * 
 	 * @param word
 	 */
 	public void useLetters(String word) {
 		int idx;
-		for (char c : word.toCharArray()) {
+		for (char c : word.toUpperCase().toCharArray()) {
 			if ((idx = letters.indexOf("" + c)) != -1)
 				letters.remove(idx);
 		}
