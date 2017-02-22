@@ -7,6 +7,7 @@ import java.text.Normalizer;
 import java.text.Normalizer.Form;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.Vector;
 
 import fr.esiea.poinsignon.teissier.util.Util;
 
@@ -34,6 +35,63 @@ public abstract class ADictionary {
 		fillDictionary(in);
 	}
 	
+	
+	
+	/**
+	 * Find the longest word in the dictionary with the given letters
+	 * 
+	 * @param word
+	 * 
+	 * @return
+	 */
+	public String getLongestWordFor(String word) {
+		String wordFixed = removeAccents(word).toLowerCase();
+
+		// Get all substrings, ordered by decreasing length
+		for (String subword : Util.getAllSubstrings(wordFixed, 2)) {
+			int len = subword.length();
+			//System.out.println("Testing subword: " + subword);
+			for (String test : dico) {
+				if (test.length() == len)
+				{
+					//System.out.println("same length: " + test + " // " + Util.hasSameLetters(subword, test));
+				}
+				if (test.length() == len && Util.hasSameLetters(subword, test))
+				{
+					//System.out.println("Subwords: " + wordFixed + " // " + Util.getAllSubstrings(wordFixed, 2));
+					return test;
+				}
+			}
+		}
+		
+		//System.out.println("Subwords: " + wordFixed + " // " + Util.getAllSubstrings(wordFixed, 2));
+		
+		return "";
+	}
+	
+	/**
+	 * Find all the words that can be an extension of the given word
+	 * 
+	 * @param word
+	 * 
+	 * @return
+	 */
+	public Vector<String> getPossibleExtensionsFor(String word) {
+		Vector<String> res = new Vector<String>();
+		
+		// Don't check dictionary in this worst-case scenario
+		if (word == null || word.length() < 2)
+			return res;
+		
+		String wordFixed = removeAccents(word).toLowerCase();
+		int len = wordFixed.length();
+		for (String test : dico)
+			if (test.length() > len && Util.hasSameLetters(wordFixed, test))
+				res.add(test);
+		
+		return res;
+	}
+	
 	/**
 	 * Check if a given word exists
 	 * 
@@ -55,9 +113,9 @@ public abstract class ADictionary {
 	 * @param in The input stream to read from
 	 */
 	private void fillDictionary(InputStream in) {
-		BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-		String line;
 		try {
+			BufferedReader reader = new BufferedReader(new InputStreamReader(in, "UTF-8"));
+			String line;
 			while ((line = reader.readLine()) != null)
 				dico.add(line);
 		}

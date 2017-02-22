@@ -2,6 +2,7 @@ package fr.esiea.poinsignon.teissier.player;
 
 import java.util.HashMap;
 
+import fr.esiea.poinsignon.teissier.game.AGame;
 import fr.esiea.poinsignon.teissier.move.AMove;
 import fr.esiea.poinsignon.teissier.util.Pair;
 
@@ -51,9 +52,11 @@ public class Human extends APlayer {
 	/**
 	 * Play our turn
 	 * 
+	 * @param game
+	 * 
 	 * @return The word we try to put
 	 */
-	public String play() {
+	public String play(AGame game) {
 		System.out.print("Please enter a word (empty to skip): ");
 
 		return System.console().readLine();

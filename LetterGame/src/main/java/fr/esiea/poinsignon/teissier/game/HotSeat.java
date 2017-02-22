@@ -1,5 +1,7 @@
 package fr.esiea.poinsignon.teissier.game;
 
+import fr.esiea.poinsignon.teissier.player.APlayer;
+import fr.esiea.poinsignon.teissier.player.Bot;
 import fr.esiea.poinsignon.teissier.player.Human;
 
 /**
@@ -16,7 +18,7 @@ public class HotSeat extends AGame {
 		String name;
 		
 		do {
-			System.out.print("New player enter your name (otherwise leave empty): ");
+			System.out.print("New player enter your name ('BOT' for IA, otherwise leave empty): ");
 			name = System.console().readLine();
 			name = (name == null ? "" : name.trim());
 			if (checkName(name))
@@ -32,7 +34,12 @@ public class HotSeat extends AGame {
 	 * @param name
 	 */
 	protected void addHotSeatPlayer(String name) {
-		players.add(new Human(name, bowl.pickLetter(bag)));
-		System.out.println(name + " entered the game and picked the letter " + players.lastElement().getLetter());
+		APlayer player;
+		if (name.compareToIgnoreCase("bot") == 0)
+			player = new Bot("bot", bowl.pickLetter(bag));
+		else
+			player = new Human(name, bowl.pickLetter(bag));
+		players.add(player);
+		System.out.println(player.getName() + " entered the game and picked the letter " + player.getLetter());
 	}
 }

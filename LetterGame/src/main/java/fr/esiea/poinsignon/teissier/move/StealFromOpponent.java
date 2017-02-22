@@ -49,7 +49,7 @@ public class StealFromOpponent extends AMove {
 		
 		for (APlayer opponent : game.getOpponents())
 			for (String oppWord : opponent.getWords())
-				if (word.length() > oppWord.length() && Util.hasSameLetters(word, Util.addCharsToVector(bowlLetters, oppWord)))
+				if (word.length() > oppWord.length() && Util.hasSameLetters(oppWord, word) && Util.hasSameLetters(word, Util.addCharsToVector(bowlLetters, oppWord)))
 					options.add(new Pair<APlayer, String>(opponent, oppWord));
 		
 		return !options.isEmpty();

@@ -3,6 +3,7 @@ package fr.esiea.poinsignon.teissier.bowl;
 import java.util.Vector;
 
 import fr.esiea.poinsignon.teissier.bag.Bag;
+import fr.esiea.poinsignon.teissier.dictionary.ADictionary;
 
 
 /**
@@ -24,6 +25,23 @@ public class Bowl {
 	
 	
 	
+	/**
+	 * Get the longest word that we can achieve with the letters in the bowl
+	 * 
+	 * @return
+	 */
+	public String findLongestWord(ADictionary dico) {
+		return dico.getLongestWordFor(getLettersAsString());
+	}
+	
+	/**
+	 * Reset the letters with the given ones (mainly used for testing purposes)
+	 * @param word
+	 */
+	public void setLetters(String word) {
+		letters.clear();
+		addLetters(word);
+	}
 	
 	/**
 	 * Add the given letters to the bowl (mainly used for testing purposes)
@@ -79,6 +97,18 @@ public class Bowl {
 	 */
 	public final Vector<String> getLetters() {
 		return letters;
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public final String getLettersAsString() {
+		String ret = "";
+		for (String letter : letters)
+			ret += letter;
+		
+		return ret;
 	}
 	
 	/**

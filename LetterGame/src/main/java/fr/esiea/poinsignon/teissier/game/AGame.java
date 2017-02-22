@@ -7,6 +7,7 @@ import java.util.Vector;
 
 import fr.esiea.poinsignon.teissier.bag.Bag;
 import fr.esiea.poinsignon.teissier.bowl.Bowl;
+import fr.esiea.poinsignon.teissier.dictionary.ADictionary;
 import fr.esiea.poinsignon.teissier.dictionary.FrenchDictionary;
 import fr.esiea.poinsignon.teissier.move.AMove;
 import fr.esiea.poinsignon.teissier.player.APlayer;
@@ -23,7 +24,7 @@ import fr.esiea.poinsignon.teissier.util.Pair;
  */
 public abstract class AGame {
 	protected static AGame instance = null;
-	protected static final int WIN_SCORE = 2;
+	protected static final int WIN_SCORE = 10;
 	
 	protected FrenchDictionary dico = new FrenchDictionary();
 	protected Bag bag = Bag.getInstance();
@@ -41,19 +42,19 @@ public abstract class AGame {
 	 */
 	public final void init() {
 		// Debug
-		System.out.println("Blabli exists ? " + dico.exists("Blabli"));
+		/*System.out.println("Blabli exists ? " + dico.exists("Blabli"));
 		System.out.println("voiture exists ? " + dico.exists("voiture"));
 		System.out.println("Voiture exists ? " + dico.exists("Voiture"));
 		System.out.println("Vôiture exists ? " + dico.exists("Vôiture"));
-		bowl.addLetters("abatage");
+		bowl.addLetters("abatage");*/
 		
 		waitForPlayers();
 		checkNbPlayers();
 		determinePlayerOrder();
 		
 		// Debug
-		for (APlayer player : players)
-			System.out.println("Player " + player.getName());
+		//for (APlayer player : players)
+		//	System.out.println("Player " + player.getName());
 		
 		play();
 		showScores();
@@ -83,7 +84,7 @@ public abstract class AGame {
 			getNextPlayer();
 			bowl.pickLetters(bag, 2);
 			showBoardStatus(true);
-			word = curPlayer.play().trim().toUpperCase();
+			word = curPlayer.play(this).trim().toUpperCase();
 			if (assertWordExists(word)) {
 				tryToPlaceWord(word);
 				if (curPlayer.getScore() >= WIN_SCORE)
@@ -147,8 +148,9 @@ public abstract class AGame {
 			return;
 		}
 		
-		System.out.println("**** OPTIONS");
-		showAllOptions(options, true);
+		// DEBUG
+		//System.out.println("**** OPTIONS");
+		//showAllOptions(options, true);
 		
 		System.out.print("Placing the word '" + word + "' - ");
 		
@@ -304,6 +306,16 @@ public abstract class AGame {
 	}
 
 
+	
+	/**
+	 * Get the current dictionary
+	 * 
+	 * @return
+	 */
+	public final ADictionary getDictionary() {
+		return dico;
+	}
+	
 
 
 	/**

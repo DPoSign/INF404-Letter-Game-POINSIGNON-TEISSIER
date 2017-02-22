@@ -42,7 +42,7 @@ public class CompleteOwnWord extends AMove {
 		
 		APlayer self = game.getCurrentPlayer();
 		for (String ownWord : self.getWords())
-			if (word.length() > ownWord.length() && Util.hasSameLetters(word, Util.addCharsToVector(bowlLetters, ownWord)))
+			if (word.length() > ownWord.length() && Util.hasSameLetters(ownWord, word) && Util.hasSameLetters(word, Util.addCharsToVector(bowlLetters, ownWord)))
 				options.add(ownWord);
 		
 		return !options.isEmpty();

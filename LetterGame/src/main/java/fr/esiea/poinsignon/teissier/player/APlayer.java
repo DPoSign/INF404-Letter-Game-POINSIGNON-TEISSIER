@@ -3,6 +3,7 @@ package fr.esiea.poinsignon.teissier.player;
 import java.util.HashMap;
 import java.util.Vector;
 
+import fr.esiea.poinsignon.teissier.game.AGame;
 import fr.esiea.poinsignon.teissier.move.AMove;
 import fr.esiea.poinsignon.teissier.util.Pair;
 
@@ -53,9 +54,11 @@ public abstract class APlayer {
 	/**
 	 * Play our turn
 	 * 
+	 * @param game
+	 * 
 	 * @return The word we try to put
 	 */
-	abstract public String play();
+	abstract public String play(AGame game);
 	
 	/**
 	 * Choose a move option to execute
