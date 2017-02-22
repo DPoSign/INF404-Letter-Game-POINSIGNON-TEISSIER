@@ -7,7 +7,7 @@ import java.util.Comparator;
 /**
  * Comparator for sorting players by their score
  * 
- * @author Daniel Poinsignon
+ * @author Cannelle Teissier
  */
 public class StringLengthComparatorReversed implements Comparator<String> {
 	/**

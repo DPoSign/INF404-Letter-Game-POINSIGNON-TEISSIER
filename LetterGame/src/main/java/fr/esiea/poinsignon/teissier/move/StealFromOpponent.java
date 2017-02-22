@@ -11,7 +11,7 @@ import fr.esiea.poinsignon.teissier.util.Util;
 /**
  * Move that allows a player to steal a word from an opponent
  * 
- * @author Daniel Poinsignon
+ * @author Cannelle Teissier
  */
 public class StealFromOpponent extends AMove {
 	/**

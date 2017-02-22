@@ -7,7 +7,7 @@ import fr.esiea.poinsignon.teissier.util.Util;
 /**
  * Move that allows a player to only use letters from the bowl
  * 
- * @author Daniel Poinsignon
+ * @author Cannelle Teissier
  */
 public class FromBowl extends AMove {
 	/**

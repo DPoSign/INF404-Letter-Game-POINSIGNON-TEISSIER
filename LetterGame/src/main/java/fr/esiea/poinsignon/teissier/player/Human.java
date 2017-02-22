@@ -9,7 +9,7 @@ import fr.esiea.poinsignon.teissier.util.Pair;
 /**
  * Human player
  * 
- * @author Daniel Poinsignon
+ * @author Cannelle Teissier
  */
 public class Human extends APlayer {
 	public Human(String name, String letter) {
