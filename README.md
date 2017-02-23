@@ -17,10 +17,10 @@ https://github.com/MLabusquiere/TP_4A_2017_Letter_Game
 ![alt tag](https://github.com/DPoSign/INF4043-Letter-Game-POINSIGNON-TEISSIER/blob/master/assets/completing.PNG)
 
 - Une interface en ligne de commande offre la possibilité d'améliorer un mot ou de le voler.
-![alt tag](https://github.com/DPoSign/INF4043-Letter-Game-POINSIGNON-TEISSIER/blob/master/assets/steal.png)
+![alt tag](https://github.com/DPoSign/INF4043-Letter-Game-POINSIGNON-TEISSIER/blob/master/assets/steal.PNG)
 
 - Une intelligence artificielle permet de jouer contre l'ordinateur. L'intelligence artificielle privilégie les mots les plus long du dictionnaire. Elle favorise dans l'ordre le vol de mot, la création de mot à partir de bol et l'amélioration de ces propres mots. Le choix a été fait de la rendre difficile à battre, mais il est possible de lui conférer une attitude plus humaine en lui donnant un pourcentage d'échec (au lieu de trouver systématiquement des mots) ou de privilégier des mots plus court. 
-![alt tag](https://github.com/DPoSign/INF4043-Letter-Game-POINSIGNON-TEISSIER/blob/master/assets/bot.png)
+![alt tag](https://github.com/DPoSign/INF4043-Letter-Game-POINSIGNON-TEISSIER/blob/master/assets/bot.PNG)
 
 ## Description de l'architecture
 Le projet contient 8 packages distints qui assurent le fonctionnement de l'application.
