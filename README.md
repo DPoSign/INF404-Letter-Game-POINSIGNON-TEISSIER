@@ -33,5 +33,22 @@ Le projet contient 8 packages distints qui assurent le fonctionnement de l'appli
 
 ## Illustration des principes SOLID
 
-###Factory Method
-###Singleton
+###Factory Method & Singleton
+```
+ public static final AGame factory(String type) {
+  if (instance != null)
+   return instance;
+
+  try {
+   Class < ? > gameClass = Class.forName("fr.esiea.poinsignon.teissier.game." + type);
+
+   if (gameClass != AGame.class && AGame.class.isAssignableFrom(gameClass)) {
+    instance = (AGame) gameClass.newInstance();
+    return instance;
+   }
+  } catch (Exception e) {}
+
+  throw new RuntimeException(type + " is not an available game mode");
+ }
+```
+
