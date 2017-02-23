@@ -8,7 +8,6 @@ import java.text.Normalizer.Form;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Vector;
-
 import fr.esiea.poinsignon.teissier.util.Util;
 
 
