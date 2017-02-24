@@ -35,8 +35,7 @@ public abstract class AGame {
 	protected APlayer curPlayer;
 	protected final String[] moves = {"FromBowl", "StealFromOpponent", "CompleteOwnWord"};
 	
-	
-	
+		
 	/**
 	 * 
 	 */
