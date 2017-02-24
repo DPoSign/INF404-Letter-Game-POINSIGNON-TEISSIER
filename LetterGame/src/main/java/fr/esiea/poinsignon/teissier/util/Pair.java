@@ -4,7 +4,7 @@ package fr.esiea.poinsignon.teissier.util;
 /**
  * A simple Pair class
  * 
- * @author Cannelle Teissier
+ * @author Daniel Poinsignon
  *
  * @param <E1>
  * @param <E2>

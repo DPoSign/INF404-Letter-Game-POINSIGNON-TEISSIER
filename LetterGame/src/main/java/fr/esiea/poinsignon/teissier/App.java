@@ -12,11 +12,11 @@ import fr.esiea.poinsignon.teissier.game.HotSeat;
  * @see http://findbugs.sourceforge.net/manual/eclipse.html
  */
 class App {
- public static void main(String[] args) {
-  // FIXME gérer les mots composés
-  // FIXME tests unitaires
-
-  HotSeat game = (HotSeat) AGame.factory("HotSeat");
-  game.init();
- }
+	public static void main(String[] args) {
+        // FIXME gérer les mots composés
+        // FIXME tests unitaires
+		
+        HotSeat game = (HotSeat)AGame.factory("HotSeat");
+        game.init();
+    }
 }
