@@ -72,7 +72,7 @@ public static final AMove factory(String type) {
 L'instanciation de toute la panoplie des lettres ayant des accents est très gourmande en mémoire. Au lieu de manipuler tous ces objets, nous avons utiliser le pattern Flyweight.  
 ```java
 String original = "aáeéiíoóöőuúüűAÁEÉIÍOÓÖŐUÚÜŰ";
-```java
+```
 
-###SOLID- Single Responsibility Principle
+###SOLID - Single Responsibility Principle
 Dans le cadre d'une démarche SOLID, nous avons fais en sorte que certaine classe comme "ADctionnary" soit à responsabilité unique, cette classe ne fait qu'une unique chose : gérer la relation des mots inscrit par rapport au dictionnaire. On gagne en souplesse et l'ensemble est moins sensible au changement.
