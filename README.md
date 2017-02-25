@@ -1,13 +1,16 @@
 # TP Architecture Logicielle / Inf4043 - 2017 - Jeux de lettres
 
 ## Compilation & Démarrage
-Pour compiler et lancer le projet avec Maven, utilisez les commandes ci-dessous en étant dans le dossier "LetterGame" ```bash mvn package java -jar target/LetterGame-1.0.jar ```
+Pour compiler et lancer le projet avec Maven, utilisez les commandes ci-dessous en étant dans le dossier "LetterGame" 
+```
+bash mvn package java -jar target/LetterGame-1.0.jar
+```
 Pour jouer, entrer un nom de joueur ou BOT et appuyez sur le touche ENTRÉE
 
 ## Règles du jeu, objectif du jeu et modalités de rendu. 
-
 ```
-https://github.com/MLabusquiere/TP_4A_2017_Letter_Game ```
+https://github.com/MLabusquiere/TP_4A_2017_Letter_Game
+```
 
 ## Fonctionnalités développées
 - Une première étape consiste à pouvoir jouer à plusieurs autour d'un même écran.
@@ -47,7 +50,7 @@ return instance;
 ```
 
 ###Factory Method
-La classe correspondant aux AMove va être fortement couplée à tous les types de mouvement (c'est un problème si l'on ajoute ou supprime des mouvements). Le pattern a été utilisé pour découpler les différents types de mouvement à instancier (que l'on connaisse leur type par avance ou pas). Enfin, nous avons déclaré la méthode  comme « final » afin que ses sous-classes ne puissent pas la redéfinir.
+La classe correspondant à AMove va être fortement couplée à tous les types de mouvement (c'est un problème si l'on ajoute ou supprime des mouvements). Le pattern a été utilisé pour découpler les différents types de mouvement à instancier (que l'on connaisse leur type par avance ou pas). Enfin, nous avons déclaré la méthode  comme « final » afin que ses sous-classes ne puissent pas la redéfinir.
 ```java 
 public static final AMove factory(String type) {   
 try {
