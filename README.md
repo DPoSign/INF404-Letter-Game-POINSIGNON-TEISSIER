@@ -39,6 +39,7 @@ Le projet contient 8 packages distincts qui assurent le fonctionnement de l'appl
 - Move contient des interactions spécifiques comme le vol de mot, la complétion de mot, des affichages graphiques.
 - Player comprend les éléments liés aux joueurs (ordre de passage, comparaison de score) et également l'IA.
 - Util contient des éléments utilisés dans d'autres packages comme la comparaison de la longueur des mots (et par extension permet la comparaison par le score).
+- Des test unitaires ont été réalisés avec l'utilisation de JUnit et la librairie AssertJ
 
 ## Illustration des principes SOLID/Design Pattern
 
