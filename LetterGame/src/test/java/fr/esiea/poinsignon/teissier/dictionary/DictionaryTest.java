@@ -11,11 +11,12 @@ import static org.junit.Assert.assertTrue;
  */
 public class DictionaryTest {
     
-    protected FrenchDictionary dico = new FrenchDictionary();
+    protected FrenchDictionary dico;
 
     @Before
     public void setup() {
         //TODO
+		dico = new FrenchDictionary();
     }
 
     @Test
@@ -31,4 +32,11 @@ public class DictionaryTest {
     	assertTrue(dico.exists("abbe"));
     
     }
+
+    @Test
+	public void isAFrenchDictionary() {
+    	assertTrue(dico.lang.matches("french"));
+		String testLongWord = dico.getLongestWordFor("ambul");
+		assertTrue(dico.exists(testLongWord));
+	}
 }
