@@ -3,17 +3,20 @@
 ## Compilation & Démarrage
 Pour compiler et lancer le projet avec Maven, utilisez les commandes ci-dessous en étant dans le dossier "LetterGame" 
 ```
-bash mvn package java -jar target/LetterGame-1.0.jar
+mvn package
+```
+```
+java -jar target/LetterGame-1.0.jar
 ```
 Pour jouer, entrer un nom de joueur ou BOT et appuyez sur le touche ENTRÉE
 
-## Règles du jeu, objectif du jeu et modalités de rendu. 
+## Règles du jeu, objectif du jeu et modalités de rendu 
 ```
 https://github.com/MLabusquiere/TP_4A_2017_Letter_Game
 ```
 
 ## Fonctionnalités développées
-- Une première étape consiste à pouvoir jouer à plusieurs autour d'un même écran.
+- Une première étape consiste à pouvoir jouer à plusieurs (2, 3, 4 joueurs avec ou sans bot) autour d'un même écran.
 
 ![alt tag](https://github.com/DPoSign/INF4043-Letter-Game-POINSIGNON-TEISSIER/blob/master/assets/completing.PNG)
 
